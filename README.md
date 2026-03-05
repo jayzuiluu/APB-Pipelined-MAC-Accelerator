@@ -41,8 +41,15 @@ By isolating the multiplier and adder into distinct pipeline stages, the design 
 ![STA Timing Report](Docs/timing.png)
 
 ### Resource Utilization & Power Estimation
-The design demonstrates a highly optimized footprint and extreme power efficiency:
-![Power and Area Report](Docs/power.png)
+The design demonstrates a highly optimized footprint and extreme power efficiency, even when stress-tested at 200 MHz:
+* **Total On-Chip Power:** **0.074 W** (Dynamic: 0.004 W, Static: 0.070 W).
+* **Area Utilization:** 85 LUTs (< 1%), 69 Registers (< 1%), and exactly 1 DSP48 slice.
+
+**Area Report:**
+![Area Report](Docs/area.png)
+
+**Power Report:**
+![Power Report](Docs/power.png)
 
 ## Key Learnings & Backend Methodologies
 * RTL to Gate-Level mapping and preventing latch inference.
