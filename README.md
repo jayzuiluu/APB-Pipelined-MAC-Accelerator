@@ -29,14 +29,14 @@ Functional verification was performed using a custom Bus Functional Model (BFM) 
 ![Simulation Waveform](Docs/waveform.png)
 
 ## Logic Synthesis & Static Timing Analysis (STA)
-The RTL code was synthesized and analyzed using **Xilinx Vivado 2025.2**. Strict Timing Constraints (SDC/XDC) were applied to evaluate the pipeline's efficiency and ensure complete timing closure.
+The RTL code was synthesized and analyzed using **Xilinx Vivado 2025.2**. Strict Timing Constraints (SDC/XDC) were applied to evaluate the pipeline's efficiency and stress-test the maximum operating frequency.
 
 * **Target Device**: Xilinx Artix-7 FPGA (`xc7a35tcpg236-1`)
-* **Target Clock Frequency**: 100 MHz (Period: 10.000 ns)
-* **Worst Negative Slack (WNS)**: **+4.706 ns** (Timing Met)
-* **Estimated Maximum Frequency (Fmax)**: **~188.8 MHz**
+* **Target Clock Frequency**: 200 MHz (Period: 5.000 ns)
+* **Worst Negative Slack (WNS)**: **+0.212 ns** (Timing Met)
+* **Estimated Maximum Frequency (Fmax)**: **~208.8 MHz**
 
-By isolating the multiplier and adder into distinct pipeline stages, the design achieved significant positive slack without any Setup/Hold violations. Furthermore, the synthesis tool successfully mapped the multiplication logic into dedicated **DSP48 slices**, drastically reducing LUT usage and combinational logic delay.
+By isolating the multiplier and adder into distinct pipeline stages, the design successfully closed timing at 200 MHz without any Setup/Hold violations. The synthesis tool effectively mapped the 16x16 multiplication logic into a dedicated **DSP48 slice**, drastically reducing LUT usage and physical routing delay.
 
 ![STA Timing Report](Docs/timing.png)
 
